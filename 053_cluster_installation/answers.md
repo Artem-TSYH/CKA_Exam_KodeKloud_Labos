@@ -1,4 +1,4 @@
-1/8. Prepare both nodes (controlplane and node01) for Kubernetes by completing the following steps:
+### 1/8. Prepare both nodes (controlplane and node01) for Kubernetes by completing the following steps:
 
 1.1 Apply the necessary sysctl parameters for networking.
 
