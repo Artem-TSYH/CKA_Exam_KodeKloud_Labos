@@ -6,7 +6,7 @@ https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
 ### Solutions for sysctl parameters for networking (files /etc/modules-load.d/k8s.conf and /etc/sysctl.d/k8s.conf) - only in korean version!
 
-=== BEGIN ===
+=== BEGIN ===  
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
@@ -23,14 +23,14 @@ net.ipv4.ip_forward                 = 1
 EOF
 
 ### 재부팅하지 않고 sysctl 파라미터 적용하기
-sudo sysctl --system
+sudo sysctl --system  
 === END ===
 
 ## 1.2 Install the kubeadm and kubelet packages at the exact version 1.33.0-1.1 on both nodes.
 
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
-=== BEGIN ===
+=== BEGIN ===  
 sudo apt-get update
 ### apt-transport-https may be a dummy package; if so, you can skip that package
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
@@ -46,7 +46,7 @@ sudo apt-get update
 
 sudo apt-get install -y kubelet=1.33.0-1.1 kubeadm=1.33.0-1.1 
 sudo apt-mark hold kubelet kubeadm
-
+  
 === END ===
 
 ## 1.3 Install the kubectl package at the exact version 1.33.0-1.1 exclusively on the controlplane.
