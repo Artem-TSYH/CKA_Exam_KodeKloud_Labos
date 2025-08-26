@@ -121,4 +121,18 @@ cat /etc/kubernetes/manifests/kube-apiserver.yaml  | grep port
 sudo kubeadm join --discovery-token abcdef.1234567890abcdef --discovery-token-ca-cert-hash sha256:1234..cdef 1.2.3.4:6443
 === END ===
 
-# 8/8.
+# 8/8. To install a network plugin, we will go with Flannel as the default choice. For inter-host communication, we will utilize the eth0 interface and update the Network field accordingly.
+Ensure that the Flannel manifest includes the appropriate options for this configuration.
+For detailed instructions, refer to the official documentation linked in the upper right corner above the terminal.
+
+https://kubernetes.io/docs/concepts/cluster-administration/addons/#networking-and-network-policy
+https://github.com/flannel-io/flannel/blob/master/Documentation/configuration.md
+
+### Edit daemon-set:  
+containers:
+- name: kube-flannel
+  image: ...
+  args:
+    - ...  
+    - --iface=eth0
+    - 
